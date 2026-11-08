@@ -1,0 +1,52 @@
+name: Hardware test / compatibility report
+description: Help validate cooler display and optional ARGB compatibility.
+title: "[Hardware] Model / Linux distro / result"
+labels: ["hardware", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not post serial numbers, private system details, or proprietary firmware.
+  - type: input
+    id: cooler
+    attributes:
+      label: Cooler model and revision
+      placeholder: MT880-V4D
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Linux distribution and kernel
+      placeholder: Ubuntu 26.04, kernel X.Y.Z
+    validations:
+      required: true
+  - type: textarea
+    id: discovery
+    attributes:
+      label: USB/HID discovery (redact serials)
+      description: Output of lsusb and python3 cpu_temp_display.py list
+      render: text
+    validations:
+      required: true
+  - type: dropdown
+    id: display
+    attributes:
+      label: Does the temperature display update?
+      options:
+        - Not tested
+        - Yes, with default 64-byte report
+        - Yes, with 65-byte report
+        - No / error
+    validations:
+      required: true
+  - type: textarea
+    id: openrgb
+    attributes:
+      label: OpenRGB (optional)
+      description: OpenRGB version; motherboard/controller; ARGB connector and zone; whether colors change
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error output and additional notes (redact private details)
+      render: text

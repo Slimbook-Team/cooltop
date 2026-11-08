@@ -1,8 +1,10 @@
-# USB CPU Temperature Display for Linux
+# CoolTop — CPU Temperature Display for Linux
 
-**Experimental Linux driver for USB-connected CPU cooler temperature displays.**
+**Experimental, open-source Linux driver for USB-connected CPU cooler temperature displays.**
 
-This independent project reads CPU temperature and usage from Linux and sends them to a compatible CPU cooler's digital display through its internal motherboard USB connection. It runs without Wine, a graphical desktop, third-party Python packages, or proprietary Windows binaries.
+**Repository:** [Slimbook-Team/cooltop](https://github.com/Slimbook-Team/cooltop) · [OpenRGB guide](docs/OPENRGB.md) · [Hardware testing](docs/HARDWARE_TESTING.md) · [Issues](https://github.com/Slimbook-Team/cooltop/issues)
+
+CoolTop reads CPU temperature and usage from Linux and sends them to a compatible CPU cooler's digital display through its internal motherboard USB connection. It runs without Wine, a graphical desktop, third-party Python packages, or proprietary Windows binaries.
 
 > [!WARNING]
 > **Pre-release: real-hardware testing is pending.** The USB protocol and packet-building code have been studied and unit-tested, but this exact build has not yet been verified on an MT880-V4D display. Do **not** describe it as confirmed working until a physical test succeeds.
@@ -11,7 +13,7 @@ This independent project reads CPU temperature and usage from Linux and sends th
 
 | Component | Connection | Software |
 | --- | --- | --- |
-| **Temperature display** | Internal motherboard USB | This repository (`cpu_temp_display.py`) |
+| **Temperature display** | Internal motherboard USB | CoolTop (`cpu_temp_display.py`) |
 | **ARGB fan lighting** | 3-pin **5 V** ARGB header or compatible ARGB controller (on applicable variants) | [OpenRGB](https://openrgb.org/) |
 | **Fan speed** | Fan PWM header | BIOS/UEFI or a separate fan-control solution |
 
@@ -55,14 +57,13 @@ sudo apt install usbutils lm-sensors
 
 ## Quick start: test before installing
 
-Clone this repository, or download and extract it as a ZIP from GitHub:
+Clone the official CoolTop repository (or use **Code → Download ZIP** on GitHub and extract it):
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/usb-cpu-temp-display-linux.git
-cd usb-cpu-temp-display-linux
+git clone https://github.com/Slimbook-Team/cooltop.git
+cd cooltop
 ```
 
-*Replace `YOUR-USERNAME` with the actual repository owner after publishing.*
 
 **1. Identify your hardware without writing to USB:**
 
@@ -71,7 +72,7 @@ lsusb | grep -i '1a2c:4984'
 python3 cpu_temp_display.py list
 ```
 
-You should see a matching `/dev/hidrawN` node and ideally a `Selected device:` entry. If `lsusb` has a **different USB ID**, do not force another device ID into the script. Save the diagnostics instead.
+You should see a matching `/dev/hidrawN` node and ideally a `Selected device:` entry. If `lsusb` has a **different USB ID**, do not force another device ID into the script. Save the diagnostics instead. If the expected device is visible but the HID descriptor is not readable, try `sudo python3 cpu_temp_display.py list` to diagnose permissions before any USB write.
 
 **2. Check the temperature and telemetry packet without touching the display:**
 
@@ -150,7 +151,7 @@ An earlier MT880 setup was reportedly controlled successfully with OpenRGB, but 
 | Screen stays blank | Run for a few seconds; collect logs, exact model and USB ID. |
 | ARGB is not listed in OpenRGB | Find the motherboard/controller and its ARGB zone, not necessarily the cooler name. See the separate guide. |
 
-For a more systematic checklist, see **[docs/HARDWARE_TESTING.md](docs/HARDWARE_TESTING.md)**. Open an issue using the included issue template. Remove hardware serial numbers and private details before sharing logs.
+For a more systematic checklist, see **[docs/HARDWARE_TESTING.md](docs/HARDWARE_TESTING.md)**. Open a [hardware report issue](https://github.com/Slimbook-Team/cooltop/issues/new/choose) using the included template. Remove hardware serial numbers and private details before sharing logs.
 
 ## Development
 
@@ -166,15 +167,14 @@ The packet format and its limitations are documented in **[docs/PROTOCOL.md](doc
 
 ## Publishing on GitHub
 
-See **[docs/PUBLISHING.md](docs/PUBLISHING.md)** for GitHub website and Git commands, release labeling, and what to update after hardware verification.
+The repository is **[Slimbook-Team/cooltop](https://github.com/Slimbook-Team/cooltop)**. Maintainers who already created the Git repository should follow **[docs/PUBLISHING.md](docs/PUBLISHING.md)** to update and push the existing `main` branch. Do **not** reinitialize an existing clone.
 
 ## Contributing
 
-Hardware feedback, extra Linux sensor support, and documentation improvements are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md). Do not submit proprietary executables, drivers, firmware, or copyrighted program assets.
+Hardware feedback, extra Linux sensor support, and documentation improvements are welcome. Report bugs via [GitHub Issues](https://github.com/Slimbook-Team/cooltop/issues) and propose changes via [pull requests](https://github.com/Slimbook-Team/cooltop/pulls). Please read [CONTRIBUTING.md](CONTRIBUTING.md). Do not submit proprietary executables, drivers, firmware, or copyrighted program assets.
 
 ## License and credits
 
 MIT License — see [LICENSE](LICENSE). This is an independent community project, not an official hardware driver.
 
 USB protocol research/reference implementation: [cpu-temp-monitor-linux by ricardofrancini](https://github.com/ricardofrancini/cpu-temp-monitor-linux). The code in this repository is a separate Python implementation; no Windows binaries or assets are redistributed.
-# cooltop

@@ -1,4 +1,13 @@
-# Changelog
+# CoolTop changelog
+
+## 0.2.0-alpha.2 (2026-11-08)
+
+- Adopted **CoolTop** as the public project name and the official `Slimbook-Team/cooltop` repository.
+- Corrected the README clone commands and all public project links.
+- Rewrote the maintainer publishing guide for an **existing** Git checkout and SSH-based GitHub authentication.
+- Linked hardware reporting, contributions, and OpenRGB documentation to the actual repository.
+- No changes to the USB telemetry protocol; real MT880-V4D hardware testing remains pending.
+
 
 ## 0.2.0-alpha.1 (2026-11-08)
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""USB CPU temperature display driver for Linux.
+"""CoolTop USB CPU temperature display driver for Linux.
 
 HID-only, stdlib-only telemetry sender for USB 1a2c:4984.
 Does not modify firmware or control fans, LEDs or USB configuration.
@@ -318,7 +318,7 @@ def run(args: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description='USB CPU Temperature Display for Linux (USB HID 1a2c:4984)')
+    parser = argparse.ArgumentParser(description='CoolTop CPU Temperature Display for Linux (USB HID 1a2c:4984)')
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('list', help='List compatible HID interfaces and CPU temperature sensors')
     sender = sub.add_parser('run', help="Update the cooler's temperature display")

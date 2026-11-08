@@ -1,4 +1,4 @@
-# USB HID telemetry protocol (experimental)
+# CoolTop USB HID telemetry protocol (experimental)
 
 This driver currently targets **VID:PID `1a2c:4984`**, USB HID **Feature report `0x07`**. Hardware implementations can differ even if they use similar Windows utilities.
 

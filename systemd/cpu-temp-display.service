@@ -1,5 +1,5 @@
 [Unit]
-Description=USB CPU Temperature Display (HID telemetry)
+Description=CoolTop USB CPU Temperature Display (HID telemetry)
 After=systemd-udevd.service
 
 [Service]

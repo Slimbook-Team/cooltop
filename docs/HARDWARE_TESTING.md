@@ -1,4 +1,4 @@
-# Hardware testing checklist
+# CoolTop hardware testing checklist
 
 **No live MT880-V4D validation has been completed for this pre-release.** Please follow these steps in order. Do not begin with background-service installation.
 
@@ -67,4 +67,4 @@ OpenRGB version and device/zone (if applicable):
 Notes and any error text:
 ```
 
-Please redact unique serial numbers, account names, hostnames and identifying data before posting a public issue.
+Please redact unique serial numbers, account names, hostnames and identifying data before [posting a public issue](https://github.com/Slimbook-Team/cooltop/issues/new/choose).

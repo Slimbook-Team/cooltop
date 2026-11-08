@@ -1,6 +1,6 @@
-# OpenRGB setup for cooler ARGB lighting (Linux)
+# CoolTop: OpenRGB setup for cooler ARGB lighting (Linux)
 
-This document explains how to control **fan/heatsink LEDs** using **[OpenRGB](https://openrgb.org/)**. It is separate from the USB CPU temperature display driver in this repository.
+This guide belongs to **[CoolTop](https://github.com/Slimbook-Team/cooltop)**. It explains how to control **fan/heatsink LEDs** using **[OpenRGB](https://openrgb.org/)**. It is separate from the USB CPU temperature display driver in this repository.
 
 ## Status
 
@@ -107,7 +107,7 @@ This separation is an architectural expectation, not a promise that every mother
 
 ## Please help document MT880-V4D
 
-When you test the V4D, open a GitHub issue with the motherboard model, OpenRGB version, ARGB connector/controller, zone name, results, and (optionally) a photo with private details removed. A reproducible report can turn this guide from an educated starting point into verified instructions.
+When you test the V4D, [open a CoolTop GitHub issue](https://github.com/Slimbook-Team/cooltop/issues/new/choose) with the motherboard model, OpenRGB version, ARGB connector/controller, zone name, results, and (optionally) a photo with private details removed. A reproducible report can turn this guide from an educated starting point into verified instructions.
 
 ## References
 

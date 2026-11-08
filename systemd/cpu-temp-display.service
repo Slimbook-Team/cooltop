@@ -1,0 +1,22 @@
+[Unit]
+Description=USB CPU Temperature Display (HID telemetry)
+After=systemd-udevd.service
+
+[Service]
+Type=simple
+User=cpu-temp-display
+Group=cpu-temp-display
+ExecStart=/usr/bin/python3 -u /usr/local/lib/cpu-temp-display/cpu_temp_display.py run --interval 1
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+CapabilityBoundingSet=
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target

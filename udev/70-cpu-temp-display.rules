@@ -1,0 +1,2 @@
+# Only grants access to the matching USB HID device, not all USB controllers.
+SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="1a2c", ATTRS{idProduct}=="4984", GROUP="cpu-temp-display", MODE="0660"
